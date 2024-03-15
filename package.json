@@ -40,6 +40,7 @@
     "start": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
+    "deploy": "gh-pages -d dist",
     "lint": "eslint --fix --ext .ts,.tsx ."
   },
   "eslintConfig": {
@@ -75,6 +76,7 @@
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.5.0",
     "firestore-jest-mock": "^0.20.0",
+    "gh-pages": "^6.1.1",
     "prettier": "^2.6.2"
   }
 }

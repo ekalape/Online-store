@@ -19,7 +19,7 @@ export interface IProductsProps {
 }
 
 export interface IPropItem {
-  product: IProductData[]
+  product: IProductData
 }
 
 export interface IStateProducts {

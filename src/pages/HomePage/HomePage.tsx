@@ -8,7 +8,7 @@ import './HomePage.scss';
 const HomePage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const autoScroll = true;
-  let sliderInterval: NodeJS.Timer;
+  //let sliderInterval: NodeJS.Timer;
   const intervalTime = 5000;
 
   const nextSlide = () => {
@@ -22,17 +22,16 @@ const HomePage = () => {
     );
   };
 
-  const auto = () => {
+  /*   const auto = () => {
     sliderInterval = setInterval(nextSlide, intervalTime);
-  };
+  }; */
 
   useEffect(() => {
     setCurrentSlide(0);
   }, []);
   useEffect(() => {
-    if (autoScroll) {
-      auto();
-    }
+    const sliderInterval = setInterval(nextSlide, intervalTime);
+
     return () => clearInterval(sliderInterval);
   }, [currentSlide]);
 
@@ -52,7 +51,10 @@ const HomePage = () => {
                 <h2>{item.heading}</h2>
                 <p>{item.desc}</p>
                 <hr />
-                <Link to={RoutesEnum.Products} className='btn__link btn-primary'>
+                <Link
+                  to={RoutesEnum.Products}
+                  className='btn__link btn-primary'
+                >
                   Shop Now
                 </Link>
               </div>

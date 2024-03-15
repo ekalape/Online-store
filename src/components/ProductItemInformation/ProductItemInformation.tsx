@@ -9,10 +9,9 @@ import ProductInfo from './ProductInfo/ProductInfo';
 
 const ProductItemInformation: FC = () => {
   const { id } = useParams();
-  const { data } = useFetchProductItem('products', id as string);
+  const { data } = useFetchProductItem(id || '');
   const [showInfo, setShowInfo] = useState(false);
   const dispatch = useAppDispatch();
-  const product = useAppSelector((state) => state.products.product);
 
   useEffect(() => {
     dispatch(
@@ -23,14 +22,15 @@ const ProductItemInformation: FC = () => {
   }, [dispatch, data]);
 
   useEffect(() => {
-    if (data.length > 0) setShowInfo(true);
+    if (data) setShowInfo(true);
+    console.log('data', data);
   }, [data]);
 
   return !showInfo ? (
     <Loader />
   ) : (
     <div className='item-information__wrapper'>
-      <ProductInfo product={product} />
+      {data && <ProductInfo product={data} />}
     </div>
   );
 };

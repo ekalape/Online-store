@@ -1,31 +1,31 @@
 import { useEffect, useState } from 'react';
-import { collection, getDocs } from '@firebase/firestore';
-import { db } from '../firebase/config';
+
 import { IProductData } from '../interfaces/index';
 
-const useFetchCollection = (collectionName: string) => {
+const useFetchCollection = () => {
   const [data, setData] = useState<IProductData[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState("");
 
   const getCollection = async () => {
-    setIsLoading(true);
-    const arr: IProductData[] = [];
+
+    let arr: IProductData[] = [];
     try {
-      const querySnapshot = await getDocs(collection(db, collectionName));
-      querySnapshot.forEach((doc) => {
-        arr.push(<IProductData>doc.data());
-      });
+      const res = await fetch('https://dummyjson.com/products');
+      const json = await res.json();
+
+      arr = json.products;
       setData(arr);
-      setIsLoading(false);
+
     } catch (e) {
-      console.log(e);
+      setIsError("Something wrong happened, please try again");
     }
+
   };
   useEffect(() => {
     getCollection();
   }, []);
 
-  return { data, isLoading };
+  return { data, isError };
 };
 
 export default useFetchCollection;
