@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "esNext",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
-    ],
+    ],  
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -19,9 +19,11 @@
     "isolatedModules": true,
     "noEmit": true,
     "noImplicitAny": true,  
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": "src/",
+    "types": ["vite/client"]
   },
-  "baseUrl": "src/",
+  
   "include": [
     "next-env.d.ts",
     "**/*.ts",
