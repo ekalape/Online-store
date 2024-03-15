@@ -1,7 +1,8 @@
 {
   "name": "online-store",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
+  "homepage": "https://ekalape.github.io/Online-store/",
   "dependencies": {
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@reduxjs/toolkit": "^1.9.1",
@@ -40,7 +41,7 @@
     "start": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
-    "deploy": "gh-pages -d dist",
+    "deploy": "npm run build && gh-pages -d dist",
     "lint": "eslint --fix --ext .ts,.tsx ."
   },
   "eslintConfig": {
