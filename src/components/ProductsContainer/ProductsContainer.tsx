@@ -6,7 +6,7 @@ import Products from '../Products/Products';
 import Loader from '../Loader/Loader';
 
 const ProductsContainer = () => {
-  const { data } = useFetchCollection('products');
+  const { data, isError } = useFetchCollection();
   const products = useAppSelector((state) => state.products.products);
   const dispatch = useAppDispatch();
 
@@ -25,7 +25,13 @@ const ProductsContainer = () => {
   }, [products]);
   return (
     <div className='container-products' data-testid='container-products'>
-      {!ready ? <Loader /> : <Products products={products} />}
+      {isError.length === 0 && ready ? (
+        <Products products={products} />
+      ) : isError.length === 0 && !ready ? (
+        <Loader />
+      ) : (
+        <p>{isError}</p>
+      )}
     </div>
   );
 };

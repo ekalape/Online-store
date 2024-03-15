@@ -19,7 +19,7 @@ const ProductInfo: FC<IPropItem> = ({ product }) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const item = product[0];
+  const item = product;
   const itemImages = item.images.filter((x) => !x.includes('thumbnail'));
 
   const productsInCart = useAppSelector((state) => state.cart.products);
