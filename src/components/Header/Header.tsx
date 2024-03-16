@@ -26,17 +26,25 @@ const Header = () => {
   return (
     <header className='header'>
       <div className='header__burger'>
-        <button className={!isShowBurgerMenu ? 'burger' : 'burger active'} type='button' onClick={toggleBurgerMenu}>
+        <button
+          className={!isShowBurgerMenu ? 'burger' : 'burger active'}
+          type='button'
+          onClick={toggleBurgerMenu}
+        >
           <span />
           <span />
           <span />
         </button>
       </div>
-      <NavLink to='/' className='header__logo'>
+      <NavLink to={RoutesEnum.Home} className='header__logo'>
         <h1>Online-Store</h1>
       </NavLink>
       <nav className='header__navigation'>
-        <ul className={!isShowBurgerMenu ? 'navigation_menu' : 'navigation_menu active'}>
+        <ul
+          className={
+            !isShowBurgerMenu ? 'navigation_menu' : 'navigation_menu active'
+          }
+        >
           <li className='menu__item' onClick={toggleBurgerMenu} role='menuitem'>
             <NavLink to={RoutesEnum.Home}>Home</NavLink>
           </li>
@@ -55,14 +63,6 @@ const Header = () => {
             {totalQuantity ? <span>{totalQuantity}</span> : null}
           </NavLink>
         </div>
-        {/* <div className='header-user__login'>
-          <div className='header-user'>
-            <div className='header-user__login'>
-              Login
-              <NavLink to={RoutesEnum.Login} />
-            </div>
-          </div>
-        </div> */}
       </div>
     </header>
   );

@@ -1,5 +1,5 @@
 export enum RoutesEnum {
-  Home = '/',
+  Home = '/online-store',
   About = '/about-us',
   Login = '/login',
   Cart = '/cart',
